@@ -112,7 +112,7 @@
         },
 
         components:{swiper, swiperSlide,floorComponent,goodsInfoComponent},    //声明所引用的组件
-
+        //获取页面初始化所需数据
         created(){
             axios({
                 url:'https://www.easy-mock.com/mock/5ec4e356e0e3c81a0943e0d9/vue-koa/index',

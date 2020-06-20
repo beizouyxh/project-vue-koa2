@@ -39,7 +39,7 @@
     export default {
         data() {
             return {
-                userName: '',
+                userName: '',    //v-model实现数据的双向绑定
                 password:'',
                 openLoading:false,    //是否开启用户注册的loading
                 userNameErrorMsg:'',    //用户名出现错误时的提示信息
@@ -52,7 +52,7 @@
             },
             //*********axios注册用户方法********
             axiosRegisterUser(){
-                this.openLoading=true;
+                this.openLoading=true;  //开启loading状态
                 axios({
                     url:Url.registerUser,
                     method:'post',
@@ -61,34 +61,36 @@
                         password:this.password
                     }
                 }).then(response=>{
-                    console.log(response)
+                    // console.log(response)
                     if(response.data.code==200){
                         Toast.success(response.data.message)
                         this.$router.push('/')
                     }else{
-                        console.log(response.data.message)
-                        this.openLoading=false
+                        // console.log(response.data.message)
+                        this.openLoading=false   
                         Toast.fail('注册失败')
                     }
                 }).catch((error)=>{
-                    console.log(error)
+                    // console.log(error)
                     Toast.fail('注册失败')
+                    this.openLoading=false   
                 })
             },
-
+            //重新写一方法，调用注册及验证方法
             registerAction(){
                 this.checkForm() && this.axiosRegisterUser()
             },
+
             //****表单验证方法 */
             checkForm(){
-               let isOk=true
+               let isOk=true   //默认是OK的
                if(this.userName.length<5){
                    this.userNameErrorMsg="用户名不能少于5位"
                    isOk=false
                }else{
                    this.userNameErrorMsg=''
                }
-               if(this.passwordErrorMsg.length<6){
+               if(this.password.length<6){
                    this.passwordErrorMsg="密码不能少于6位"
                    isOk=false
                }else{

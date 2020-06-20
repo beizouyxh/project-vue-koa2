@@ -3,17 +3,18 @@
        <van-nav-bar
            title="用户登录"
            left-text="返回"
-           left-arrow
+           left-arrow   
            @click-left="goBack"
         />
 
         <div class="register-panel">
            <van-field
+
                v-model="userName"
                label="用户名"
                icon="clear"
                placeholder="请输入用户名"
-               required
+               required    
                @click-icon="userName=' '"
                :error-message="userNameErrorMsg"
             />
@@ -39,8 +40,9 @@
     export default {
         data() {
             return {
-                userName: '',
+                userName: '',   //通过v-model实现数据的双向绑定
                 password:'',
+
                 openLoading:false,    //是否开启用户注册的loading
                 userNameErrorMsg:'',    //用户名出现错误时的提示信息
                 passwordErrorMsg:'',     //密码出现错误时的提示信息
@@ -54,9 +56,10 @@
         },
         methods:{
             goBack(){
+                //返回上一页
                 this.$router.go(-1)
             },
-            //*********axios注册用户方法********
+            //*********axios登录用户方法********
             axiosLoginUser(){
                 this.openLoading=true;
                 axios({

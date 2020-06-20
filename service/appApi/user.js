@@ -1,9 +1,12 @@
-const Router = require ('koa-router')
+const Router = require ('koa-router')    //引入
 const mongoose=require('mongoose')
 let router = new Router()
+
 router.get('/',async(ctx)=>{
     ctx.body="这是用户操作首页"
 })
+//注册的方法
+//配置跨域 把get 改成 post
 router.post('/register',async(ctx)=>{
     
     //取得Model
@@ -30,14 +33,14 @@ router.post('/register',async(ctx)=>{
 router.post('/login',async(ctx)=>{
     //得到前端传递过来的数据
     let loginUser = ctx.request.body
-    console.log(loginUser)
+    // console.log(loginUser)
     let userName = loginUser.userName
     let password = loginUser.password
     //引入User的model
     const User = mongoose.model('User')
     //查找用户名是否存在，如果存在开始比对密码
    await User.findOne({userName:userName}).exec().then(async(result)=>{
-        console.log(result)
+        // console.log(result)
         if(result){
            //console.log(User)
             //当用户名存在时，开始比对密码
@@ -45,12 +48,12 @@ router.post('/login',async(ctx)=>{
             await newUser.comparePassword(password,result.password)
             .then( (isMatch)=>{
                 //返回比对结果
-                console.log(isMatch)
+                // console.log(isMatch)
                 ctx.body={ code:200, message:isMatch} 
             })
             .catch(error=>{
                 //出现异常，返回异常
-                console.log(error)
+                // console.log(error)
                 ctx.body={ code:500, message:error}
             })
         }else{

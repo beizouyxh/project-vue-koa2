@@ -3,6 +3,7 @@ const mongoose = require('mongoose')    //引入Mongoose
 const Schema = mongoose.Schema          //声明Schema
 let ObjectId = Schema.Types.ObjectId    //声明Object类型
 // const bcrypt = require('bcrypt')     //声明bcrypt
+
 //创建我们的用户Schema
 const userSchema = new Schema({
     UserId:ObjectId,   //={type:ObjectId}
@@ -32,12 +33,10 @@ const userSchema = new Schema({
 userSchema.methods = {
     //密码比对的方法
     comparePassword:(_password,password)=>{
-        // if(_password==password){
-        //     return 
-        // }
+     
         return new Promise((resolve,reject)=>{
             // bcrypt.compare(_password,password,(err,isMatch)=>{
-                cresolve(_password==password)
+                resolve(_password==password)
             })
     }
 
