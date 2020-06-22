@@ -76,7 +76,7 @@
                     this.cartInfo = JSON.parse(localStorage.cartInfo)
                 }
                 //打印到控制台查看效果
-                console.log(' this.cartInfo:'+JSON.stringify( this.cartInfo))
+                // console.log(' this.cartInfo:'+JSON.stringify( this.cartInfo))
                 this.isEmpty = this.cartInfo.length>0 ? true : false
             },
             clearCart(){

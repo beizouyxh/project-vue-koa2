@@ -10,7 +10,7 @@ fs.readFile('./goods.json', 'utf8', function(err, data){
     newData.RECORDS.map(function(value,index){
         if(value.IMAGE1!=null){
             i++
-            console.log(value.NAME)
+            // console.log(value.NAME)
             pushData.push(value)
         }  
     })

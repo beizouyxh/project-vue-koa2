@@ -93,7 +93,7 @@
                     url:url.getCategoryList,
                     method:'get'
                 }).then(response=>{
-                    console.log(response)
+                    // console.log(response)
                     if(response.data.code==200 && response.data.message){
                         this.category=response.data.message
                         this.getCategorySubByCategoryID(this.category[0].ID)
@@ -121,7 +121,7 @@
                     method:'post',
                     data:{categoryId:categoryId}
                 }).then(response=>{
-                    console.log(response)
+                    // console.log(response)
                     if(response.data.code==200 && response.data.message){
                         this.categorySub=response.data.message
                         this.active=0
@@ -163,7 +163,7 @@
                     }
                 })
                 .then(response=>{
-                   console.log(response)
+                //    console.log(response)
                    if(response.data.code == 200 && response.data.message.length ){
                    this.page++
                    this.goodList=this.goodList.concat(response.data.message)
@@ -171,7 +171,7 @@
                    this.finished = true;
                 }
                   this.loading=false;
-                  console.log(this.finished)
+                //   console.log(this.finished)
                 })
                 .catch(error=>{
                    console.log(error)
@@ -179,7 +179,7 @@
             },   
             onClickCategorySub(index,title){
                 this.categorySubId=this.categorySub[index].ID 
-                console.log('categorySubId'+this.categorySubId)
+                // console.log('categorySubId'+this.categorySubId)
                 this.goodList=[]
                 this.finished=false
                 this.page=1

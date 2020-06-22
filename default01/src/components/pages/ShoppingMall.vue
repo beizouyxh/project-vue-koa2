@@ -119,7 +119,7 @@
                 method:'get'
             })
             .then(response=>{
-                console.log(response)
+                // console.log(response)
                 if(response.status==200){
                     //获取种类
                   this.category=response.data.data.category

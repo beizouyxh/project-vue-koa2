@@ -50,7 +50,7 @@
         },
         created(){
             this.goodsId= this.$route.query.goodsId ? this.$route.query.goodsId:this.$route.params.goodsId
-            console.log(this.goodsId)
+            // console.log(this.goodsId)
             this.getInfo()
         }, 
         filters:{
@@ -71,7 +71,7 @@
                 }).catch(error=>{
                     Toast('服务器错误，获取数据失败')
                 })
-                console.log(this.goodsInfo)              
+                // console.log(this.goodsInfo)              
             },
 
             onClickLeft(){
@@ -84,7 +84,7 @@
                  //判断购物车内是否已经有这个商品
                  //如果没有返回undeifnd，如果有返回第一个查找到的数据
                  let isHaveGoods=cartInfo.find(cart=>cart.goodsId==this.goodsId)
-                 console.log(isHaveGoods)
+                //  console.log(isHaveGoods)
                  if(!isHaveGoods){
                       //没有商品直接添加到数组中
                       //重新组成添加到购物车的信息

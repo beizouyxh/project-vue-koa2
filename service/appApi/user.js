@@ -60,7 +60,7 @@ router.post('/login',async(ctx)=>{
             ctx.body={ code:200, message:'用户名不存在'}
         }
      }).catch(error=>{
-        console.log(error)
+        // console.log(error)
         ctx.body={ code:500, message:error  }
     })
 })

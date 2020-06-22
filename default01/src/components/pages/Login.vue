@@ -70,7 +70,7 @@
                         password:this.password
                     }
                 }).then(response=>{
-                    console.log(response)
+                    // console.log(response)
                     if(response.data.code==200 && response.data.message){
                          new Promise((resolve,reject)=>{
                         localStorage.userInfo={userName:this.userName}

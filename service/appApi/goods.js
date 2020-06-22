@@ -14,7 +14,7 @@ router.get('/insertAllGoodsInfo',async(ctx)=>{
             let newGoods=new Goods(value)
             newGoods.save().then(()=>{
                 saveCount++
-                console.log('成功'+saveCount)
+                // console.log('成功'+saveCount)
             }).catch(error=>{
                 console.log('失败'+error)
             })
@@ -33,7 +33,7 @@ router.get('/insertAllCategory',async(ctx)=>{
             let newCategory = new Category(value)
             newCategory.save().then(()=>{
                 saveCount++
-                console.log('成功'+saveCount)
+                // console.log('成功'+saveCount)
             }).catch(error=>{
                  console.log('失败：'+error)
             })
@@ -55,7 +55,7 @@ router.get('/insertAllCategorySub',async(ctx)=>{
             let newCategorySub = new CategorySub(value)
             newCategorySub.save().then(()=>{
                 saveCount++
-                console.log('成功插入'+saveCount)
+                // console.log('成功插入'+saveCount)
             }).catch(error=>{
                 console.log('插入失败:'+error)
             })
